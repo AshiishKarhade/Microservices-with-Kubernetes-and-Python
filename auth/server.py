@@ -15,7 +15,7 @@ app.config["MYSQL_DB"] = envs["MYSQL_DB"]
 app.config["MYSQL_PORT"] = envs["MYSQL_PORT"]
 
 
-@app.route("/login")
+@app.route("/login", methods=["POST"])
 def login():
     auth = request.authorization
     if not auth:
@@ -37,6 +37,25 @@ def login():
             return createJWT(auth.username, envs["JWT_SECRET"], True)
     else:
         return "invalid credentials", 401
+
+
+@app.route("/validate", methods=["POST"])
+def validate():
+    encoded_jwt = request.headers["Authorization"]
+
+    if not encoded_jwt:
+        return "missing credentials", 401
+
+    # format of encoded_jwt => Bearer token 
+    token = encoded_jwt.split(" ")[1]
+
+    try:
+        decoded = jwt.decode(
+            token, envs["JWT_SECRET"], algorithm="HS256"
+        )
+    except:
+        return "not authorized", 403
+    return decoded, 200
 
 
 def createJWT(username, secret, is_admin):
