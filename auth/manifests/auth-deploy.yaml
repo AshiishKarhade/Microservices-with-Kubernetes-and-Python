@@ -10,10 +10,10 @@ spec:
   selector:
     matchLabels:
       app: auth
-    strategy:
-      type: RollingUpdate
-      rollingUpdate:
-        maxSurge: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
   template:
     metadata:
       labels:
@@ -26,6 +26,6 @@ spec:
         - containerPort: 5001
         envFrom:
           - configMapRef:
-              name: auth-configMap
+              name: auth-configmap
           - secretRef:
               name: auth-secret

@@ -13,4 +13,4 @@ COPY . /app
 
 EXPOSE 5001
 
-CMD ["python3", "server.py"]
+CMD ["python3", "app.py"]
