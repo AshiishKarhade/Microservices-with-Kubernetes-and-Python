@@ -4,7 +4,6 @@ metadata:
   name: auth
   labels:
     app: auth
-
 spec:
   replicas: 2
   selector:
@@ -20,12 +19,12 @@ spec:
         app: auth
     spec:
       containers:
-      - name: auth
-        image: ashiishkarhade/auth-video-to-audio:latest
-        ports:
-        - containerPort: 5001
-        envFrom:
-          - configMapRef:
-              name: auth-configmap
-          - secretRef:
-              name: auth-secret
+        - name: auth
+          image: ashiishkarhade/auth-video-to-audio
+          ports:
+            - containerPort: 5000
+          envFrom:
+            - configMapRef:
+                name: auth-configmap
+            - secretRef:
+                name: auth-secret

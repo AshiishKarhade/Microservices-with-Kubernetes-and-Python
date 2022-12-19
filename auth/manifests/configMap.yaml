@@ -5,5 +5,5 @@ metadata:
 data:
   MYSQL_HOST: host.minikube.internal
   MYSQL_USER: auth_user
-  MYSQL_DB : auth
+  MYSQL_DB: auth
   MYSQL_PORT: "3306"
