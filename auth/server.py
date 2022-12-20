@@ -18,6 +18,7 @@ def login():
     auth = request.authorization
     if not auth:
         return "missing credentials", 401
+    return createJWT(auth.username, os.environ.get("JWT_SECRET"), True)
 
     # check db for username and password
     cur = mysql.connection.cursor()
