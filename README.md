@@ -23,6 +23,14 @@ Microservice architecture to convert video to audio using Kubernetes and Python
 
 ## Run Locally
 
+Install Tools
+
+- Docker
+- Kubernetes
+- MySQL
+- MongoDB
+
+
 Clone the project
 
 ```bash
@@ -49,17 +57,7 @@ Start K8S services
   kubectl apply -f /converter/manifests/
   kubectl apply -f /rabbit/manifests/
   kubectl apply -f /notification/manifests/
-  
 ```
-
-
-Install Tools
-
-- Docker
-- Kubernetes
-- MySQL
-- MongoDB
-
 
 ## Authors
 
