@@ -3,19 +3,17 @@ from pymongo import MongoClient
 import gridfs
 from convert import to_mp3
 
+
 def main():
     client = MongoClient("host.minikube.internal", 27017)
     db_videos = client.videos
     db_mp3s = client.mp3s
-
-    #gridfs
+    # gridfs
     fs_videos = gridfs.GridFS(db_videos)
     fs_mp3s = gridfs.GridFS(db_mp3s)
 
-    #rabbit
-    connection = pika.BlockingConnection(
-        pika.ConnectionParameters(host="rabbitmq") #service-name in k8s
-    )
+    # rabbitmq connection
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host="rabbitmq"))
     channel = connection.channel()
 
     def callback(ch, method, properties, body):
@@ -26,11 +24,10 @@ def main():
             ch.basic_ack(delivery_tag=method.delivery_tag)
 
     channel.basic_consume(
-        queue=os.environ.get("VIDEO_QUEUE"),
-        on_message_callback=callback
+        queue=os.environ.get("VIDEO_QUEUE"), on_message_callback=callback
     )
 
-    print("Waiting for message. To exit press CTRL+C")
+    print("Waiting for messages. To exit press CTRL+C")
 
     channel.start_consuming()
 
