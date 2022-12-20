@@ -26,37 +26,32 @@ Microservice architecture to convert video to audio using Kubernetes and Python
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/AshiishKarhade/Microservices-with-Kubernetes-and-Python.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd Microservices-with-Kubernetes-and-Python
 ```
 
-Install dependencies
+Start minikube tunnel
 
 ```bash
-  npm install
+  minikube tunnel
 ```
 
-Start the server
+Install Tools
 
-```bash
-  npm run start
-```
-
-
-## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+- Docker
+- Kubernetes
+- MySQL
+- MongoDB
 
 
 ## Authors
 
 - [@ashiishkarhade](https://www.github.com/ashiishkarhade)
-- [@shivaniamborkar](https://www.github.com/shivaniamborkar)
 
 
 
