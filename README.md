@@ -41,6 +41,18 @@ Start minikube tunnel
   minikube tunnel
 ```
 
+Start K8S services
+
+```bash
+  kubectl apply -f /auth/manifests/
+  kubectl apply -f /gateway/manifests/
+  kubectl apply -f /converter/manifests/
+  kubectl apply -f /rabbit/manifests/
+  kubectl apply -f /notification/manifests/
+  
+```
+
+
 Install Tools
 
 - Docker
