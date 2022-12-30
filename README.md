@@ -2,6 +2,13 @@
 
 Microservice architecture to convert video to audio using Kubernetes and Python
 
+This video to audio converter service is a powerful and reliable platform for converting video files into audio format. Built with Python and designed to be highly scalable and reliable, our service is an essential tool for anyone looking to convert their video files into audio format quickly and easily.
+
+To use our service, clients simply need to interact with our API gateway. The gateway will authenticate and authorize the user, ensuring that only authorized users have access to the service. Once the user is authenticated, they can upload a video file to the service, which will be stored in our MongoDB database.
+
+The video to audio service will then pull the video from the database, and using our video-to-audio conversion service, will convert the video into audio format. Once the conversion is complete, the service will send a message to RabbitMQ, notifying the user that the video has been converted and is ready for download.
+
+The entire architecture of our service is containerized using Docker and deployed using Kubernetes, which makes it highly scalable and reliable. Whether you're a business, a content creator, or an individual, our video to audio converter service has you covered
 
 
 
